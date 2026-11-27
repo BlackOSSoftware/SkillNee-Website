@@ -1,10 +1,11 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, Clock, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowUpRight, Clock, Mail, MapPin, Phone } from 'lucide-react';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { SiFacebook, SiInstagram, SiTelegram, SiWhatsapp, SiX, SiYoutube } from 'react-icons/si';
 import type { IconType } from 'react-icons';
 import { BrandMark } from '@/components/brand/logo';
 import { Reveal } from '@/components/motion/reveal';
+import { NewsletterForm } from '@/components/newsletter/newsletter-form';
 import { Container } from '@/components/ui/section';
 import type { CourseCategory } from '@/lib/courses';
 import { ABOUT_NAV, COURSES_NAV, LEGAL_NAV, type NavItem } from '@/lib/site';
@@ -226,20 +227,17 @@ export function SiteFooter({
 
         {/* Newsletter / updates CTA */}
         <Reveal delay={0.1}>
-          <div className="flex flex-col items-start justify-between gap-5 rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-6 backdrop-blur-sm sm:flex-row sm:items-center sm:px-8">
-            <div>
-              <h3 className="text-base font-semibold text-white">Stay in the loop</h3>
-              <p className="mt-1 text-sm text-white/60">
-                To get the latest news and latest updates from us.
-              </p>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-7 backdrop-blur-sm sm:px-8">
+            <div className="grid items-center gap-6 lg:grid-cols-[1fr_1.2fr]">
+              <div>
+                <h3 className="text-lg font-semibold text-white">Stay Connected with SkillBee</h3>
+                <p className="mt-1.5 text-sm leading-6 text-white/60">
+                  Get the latest news, professional learning updates, upcoming training programs
+                  and career opportunities delivered straight to your inbox.
+                </p>
+              </div>
+              <NewsletterForm />
             </div>
-            <Link
-              href="/blogs"
-              className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-brand-soft px-5 py-2.5 text-sm font-semibold text-navy transition-all duration-200 hover:bg-white hover:text-navy"
-            >
-              Read our blogs
-              <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden />
-            </Link>
           </div>
         </Reveal>
 
